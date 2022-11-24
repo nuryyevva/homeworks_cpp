@@ -3,16 +3,33 @@
 #include <stack>
 
 std::vector<std::string> SplitString(const std::string &data) {
-  std::string a = "";
-  std::vector<std::string> b;
-  for (auto x : data) {
-    if (x == ' ') {
-      b.push_back(a);
-      a = "";
+  std::string word = "";
+  std::vector<std::string> words;
+  for (int i = 0; i < data.size(); i++) {
+    if (data[i] == ' ' || data[i] == '\t') {
+      if (!word.empty()) {
+        words.push_back(word);
+      }
+      word = "";
     } else {
-      a = a + x;
+      if (data[i] == '\n') {
+        word = word + '\\' + 'n';
+      } else {
+        word += data[i];
+      }
+    }
+    if (data[i] == ' ' && data[i + 1] == '(') {
+      while (data[i] != ')') {
+        word = word + data[i + 1];
+        i++;
+      }
+      i += 1;
+      words.push_back(word);
+      word = "";
     }
   }
-  b.push_back(a);
-  return {b};
+  if (!word.empty()) {
+    words.push_back(word);
+  }
+  return {words};
 }
