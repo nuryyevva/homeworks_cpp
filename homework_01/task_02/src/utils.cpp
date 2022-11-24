@@ -3,17 +3,17 @@
 #include <stack>
 
 int Calculate(const std::string &data) {
-  std::string helper = "";
+  std::string number = "";
   std::vector<std::string> nums_to_calc;
   for (auto x : data) {
     if (x == '+' || x == '-' || x == '*') {
-      nums_to_calc.push_back(helper);
-      helper = "";
+      nums_to_calc.push_back(number);
+      number = "";
     } else {
-      helper = helper + x;
+      number += x;
     }
   }
-  nums_to_calc.push_back(helper);
+  nums_to_calc.push_back(number);
   int m = std::stoi(nums_to_calc[0]);
   int n = std::stoi(nums_to_calc[1]);
   for (auto x : data) {
