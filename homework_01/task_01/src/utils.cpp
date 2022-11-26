@@ -12,11 +12,7 @@ std::vector<std::string> SplitString(const std::string &data) {
       }
       word.clear();
     } else {
-      if (data[i] == '\n') {
-        word.push_back('\n');
-      } else {
-        word.push_back(data[i]);
-      }
+      word.push_back(data[i]);
     }
     if (data[i] == ' ' && data[i + 1] == '(') {
       while (data[i] != ')') {
