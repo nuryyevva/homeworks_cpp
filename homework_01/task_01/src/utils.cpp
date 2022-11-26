@@ -14,7 +14,6 @@ std::vector<std::string> SplitString(const std::string &data) {
     } else {
       if (data[i] == '\n') {
         word.push_back('\n');
-        // word.push_back('n');
       } else {
         word.push_back(data[i]);
       }
