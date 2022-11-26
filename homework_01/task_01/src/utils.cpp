@@ -10,22 +10,23 @@ std::vector<std::string> SplitString(const std::string &data) {
       if (!word.empty()) {
         words.push_back(word);
       }
-      word = "";
+      word.clear();
     } else {
       if (data[i] == '\n') {
-        word = word + '\\' + 'n';
+        word.push_back('\n');
+        // word.push_back('n');
       } else {
-        word += data[i];
+        word.push_back(data[i]);
       }
     }
     if (data[i] == ' ' && data[i + 1] == '(') {
       while (data[i] != ')') {
-        word = word + data[i + 1];
+        word.push_back(data[i + 1]);
         i++;
       }
       i += 1;
       words.push_back(word);
-      word = "";
+      word.clear();
     }
   }
   if (!word.empty()) {
