@@ -5,25 +5,25 @@
 int Calculate(const std::string &data) {
   std::string number = "";
   std::vector<std::string> nums_to_calc;
-  for (auto x : data) {
-    if (x == '+' || x == '-' || x == '*') {
+  for (int i = 0; i < data.size(); i++) {
+    if (data[i] == '+' || data[i] == '-' || data[i] == '*') {
       nums_to_calc.push_back(number);
-      number = "";
+      number.clear();
     } else {
-      number += x;
+      number += data[i];
     }
   }
   nums_to_calc.push_back(number);
   int m = std::stoi(nums_to_calc[0]);
   int n = std::stoi(nums_to_calc[1]);
-  for (auto x : data) {
-    if (x == '+') {
+  for (int j = 0; j < data.size(); j++) {
+    if (data[j] == '+') {
       return (m + n);
     }
-    if (x == '-') {
+    if (data[j] == '-') {
       return (m - n);
     }
-    if (x == '*') {
+    if (data[j] == '*') {
       return (m * n);
     }
   }

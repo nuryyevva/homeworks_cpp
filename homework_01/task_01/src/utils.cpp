@@ -15,7 +15,16 @@ std::vector<std::string> SplitString(const std::string &data) {
       word.push_back(data[i]);
     }
     if (data[i] == ' ' && data[i + 1] == '(') {
-      while (data[i] != ')') {
+      int open_brackets = 1;
+      int close_brackets = 0;
+      while (close_brackets / open_brackets != 1 ||
+             close_brackets % open_brackets != 0) {
+        if (data[i + 2] == '(') {
+          open_brackets += 1;
+        }
+        if (data[i + 1] == ')') {
+          close_brackets += 1;
+        }
         word.push_back(data[i + 1]);
         i++;
       }

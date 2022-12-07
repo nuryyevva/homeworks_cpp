@@ -14,4 +14,8 @@ TEST_CASE("SplitString", "[simple]") {
   CHECK(SplitString("a (a a)") == std::vector<std::string>{"a", "(a a)"});
   CHECK(SplitString("a (a a) b (asd as)  ") ==
         std::vector<std::string>{"a", "(a a)", "b", "(asd as)"});
+  CHECK(SplitString("abc (ab (abab (ab a) bab) ca) abab") ==
+        std::vector<std::string>{"abc", "(ab (abab (ab a) bab) ca)", "abab"});
+  CHECK(SplitString("a (abb (b ba aa)aa) a (a)") ==
+        std::vector<std::string>{"a", "(abb (b ba aa)aa)", "a", "(a)"});
 }
