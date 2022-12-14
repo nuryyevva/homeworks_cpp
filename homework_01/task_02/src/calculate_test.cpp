@@ -7,6 +7,7 @@ TEST_CASE("Calculate", "[simple_sum]") {
   CHECK(Calculate("2+2") == 4);
   CHECK(Calculate("1+0") == 1);
   CHECK(Calculate("0+0") == 0);
+  CHECK(Calculate("11+19") == 30);
 }
 
 TEST_CASE("Calculate", "[simple_difference]") {
@@ -14,6 +15,7 @@ TEST_CASE("Calculate", "[simple_difference]") {
   CHECK(Calculate("2-2") == 0);
   CHECK(Calculate("1-0") == 1);
   CHECK(Calculate("0-0") == 0);
+  CHECK(Calculate("11-19") == -8);
 }
 
 TEST_CASE("Calculate", "[simple_multiply]") {
@@ -21,4 +23,5 @@ TEST_CASE("Calculate", "[simple_multiply]") {
   CHECK(Calculate("2*2") == 4);
   CHECK(Calculate("1*0") == 0);
   CHECK(Calculate("0*0") == 0);
+  CHECK(Calculate("11*19") == 209);
 }
